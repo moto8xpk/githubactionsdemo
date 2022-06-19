@@ -42,8 +42,8 @@ jobs:
           cluster-name: test
           resource-group: test_group
 
-      - run: |
-          kubectl create namespace githubrg
+      # - run: |
+      #     kubectl create namespace githubrg
 
       - run: |
           kubectl apply -f pod.yaml
