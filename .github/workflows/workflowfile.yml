@@ -79,6 +79,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUBUSERNAME }}
           password: ${{ secrets.DOCKERHUBPASSWORD }}
+      - name: use github_env var
+        run: |
+          echo "SHOTEN_SHA=` ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+          echo $GITHUB_ENV
+      - name: docker build using github_env
+        run: |
+          docker build -t xuanan123/$SHOTEN_SHA .
+          docker push xuanan123/$SHOTEN_SHA
 
       - name: Build and push
         uses: docker/build-push-action@v3
