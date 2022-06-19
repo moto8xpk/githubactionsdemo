@@ -43,7 +43,7 @@ jobs:
           resource-group: test_group
 
       - run: |
-          kukectl create namespace githubrg
+          kubectl create namespace githubrg
 
       - name: run  az command
         run: |
