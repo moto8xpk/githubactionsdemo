@@ -36,6 +36,11 @@ jobs:
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           enable-AzPSSession: true
+      - uses: azure/aks-det-context@v1
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+          cluster-name: test
+          resource-group: test_group
 
       - name: run  az command
         run: |
