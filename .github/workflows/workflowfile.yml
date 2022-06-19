@@ -41,6 +41,8 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: test
           resource-group: test_group
+      - run: |
+          kukectl create namespace githubrg
 
       - name: run  az command
         run: |
