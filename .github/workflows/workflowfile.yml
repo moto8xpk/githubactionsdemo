@@ -32,7 +32,12 @@ jobs:
            ls -al
 
       # Runs a set of commands using the runners shell
+      - name: run  az command
+        run: |
+          az account show
+          az group list
       - name: Run a multi-line script
+        if: always()
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
@@ -55,7 +60,3 @@ jobs:
         run: docker login -u ${{ secrets.dockerhubusername }} -p ${{ secrets.dockerhubpassword }}
       - name: docker images push
         run: docker push xuanan123/demo-kotlin2.0
-      - name: run  az command
-        run: |
-          az account show
-          az group list
