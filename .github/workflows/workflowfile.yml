@@ -40,6 +40,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install azure-cli
 
+      - name: test AA command
+        run: az
+
       - name: log in to Azure Action
         uses: azure/login@v1
         with:
